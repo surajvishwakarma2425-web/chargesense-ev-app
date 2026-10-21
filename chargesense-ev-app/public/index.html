@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChargeSense – EV control panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600&family=JetBrains+Mono:wght@500" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="logo">ChargeSense</div>
+<nav><a href="#rescue">Range rescue</a><a href="#find">Chargers</a><a href="#share">Share yours</a><a href="#requests">Requests</a><a href="#insights">Insights</a><a href="#tools">Tools</a></nav>
+<div id="authArea" class="row" style="margin:0"></div>
+</header>
+
+<div class="hero">
+<div>
+<h1>Out of range? Borrow a neighbour’s charger.</h1>
+<p>ChargeSense helps EV drivers find working chargers, avoid queues and fix problems. When the nearest public charger is too far, rent a nearby citizen charger with the owner’s permission.</p>
+<span class="badge">Problem Statement 2 · Sustainable Mobility and Transportation Management</span>
+</div>
+<div class="card">
+<h3>When chargers are busiest</h3>
+<div class="scroll"><div class="heat" id="heat"></div></div>
+<p class="read" id="read" aria-live="polite">Tap a square to see how busy a station is at that hour.</p>
+<p class="hint">Darker means busier. Sample data for demonstration.</p>
+</div>
+</div>
+
+<section id="rescue"><h2 class="t">Range Rescue</h2>
+<p class="lead">Enter the range you have left. If no public charger is within reach, we show citizen chargers you can reach and let you ask the owner.</p>
+<div class="rescue">
+<div class="card">
+<div class="f2"><label for="rng">Range left (km)</label><input type="number" id="rng" value="10" min="1" max="600"></div>
+<div class="row"><button class="chip" id="useLoc">Use my location</button><button class="chip" id="demoLoc">Use demo location</button></div>
+<p class="hint" id="locTxt"></p>
+<button class="btn" id="check">Check my options</button>
+<div class="out" id="rescueOut" aria-live="polite">Press “Check my options”.</div>
+</div>
+<div class="card"><h3>Reach map</h3>
+<svg id="radar" viewBox="0 0 360 360" role="img" aria-label="Map showing your range, public stations and citizen chargers"></svg>
+<p class="hint">Centre is you. Dashed circle is your safe range. Squares are public stations, dots are citizen chargers. Bright means reachable.</p></div>
+</div>
+<ul class="list" id="cList" aria-live="polite"></ul>
+</section>
+
+<section id="find"><h2 class="t">Public chargers</h2>
+<p class="lead">Filter by plug type, speed and availability.</p>
+<div class="card">
+<div class="row"><input type="search" id="q" placeholder="Search by station or area" aria-label="Search stations"></div>
+<div class="row"><b>Plug</b><span class="row" id="plugs" style="margin:0"></span></div>
+<div class="row"><b>Speed</b><span class="row" id="speeds" style="margin:0"></span><button class="chip" id="avail" aria-pressed="false">Free now only</button></div>
+<ul class="list" id="list" aria-live="polite"></ul>
+<p class="hint">Public station data is sample data. Distances are estimated road distances from your location.</p></div></section>
+
+<section id="share"><h2 class="t">Share your charger</h2>
+<p class="lead">Own a home or shop charger? List it, set your price and approve each request yourself.</p>
+<div id="shareBody"></div></section>
+
+<section id="requests"><h2 class="t">Charging requests</h2>
+<p class="lead">Requests you sent, and requests from drivers to your chargers.</p>
+<div id="reqBody"></div></section>
+
+<section id="insights"><h2 class="t">What EV users struggle with</h2>
+<p class="lead">Share of surveyed drivers who reported each problem (sample data).</p>
+<div class="card"><div class="bars" id="bars"></div><p class="read" id="top"></p></div>
+<div class="cols" style="margin-top:18px">
+<div class="card"><h3>Mobility (Statement 2)</h3><p>Understand travel and charging patterns so drivers can plan trips and avoid waiting.</p></div>
+<div class="card"><h3>Energy use (Statement 8)</h3><p>Shifting charging away from peak hours saves money and eases pressure on the grid.</p></div>
+<div class="card"><h3>Infrastructure (Statement 1)</h3><p>Where drivers ask for citizen chargers shows where public chargers are missing.</p></div>
+</div></section>
+
+<section id="tools"><h2 class="t">Plan before you drive</h2>
+<div class="cols">
+<div class="card"><h3>Trip range</h3>
+<div class="f"><label for="cap">Battery (kWh)</label><input type="number" id="cap" value="40" min="1"></div>
+<div class="f"><label for="pct">Charge now (%)</label><input type="number" id="pct" value="80" min="1" max="100"></div>
+<div class="f"><label for="eff">Use (Wh/km)</label><input type="number" id="eff" value="150" min="50"></div>
+<div class="f"><label for="dist">Trip (km)</label><input type="number" id="dist" value="300" min="1"></div>
+<div class="out" id="rangeOut"></div></div>
+<div class="card"><h3>Charging cost</h3>
+<div class="f"><label for="from">From (%)</label><input type="number" id="from" value="20" min="0" max="99"></div>
+<div class="f"><label for="to">To (%)</label><input type="number" id="to" value="80" min="1" max="100"></div>
+<div class="f"><label for="price">Price per kWh</label><input type="number" id="price" value="18" min="0" step="0.5"></div>
+<div class="out" id="costOut"></div></div>
+</div>
+<h3 style="margin:30px 0 12px">Quick fixes</h3>
+<details><summary>The charger won’t start</summary><ol><li>Check the plug is fully seated and the car is unlocked.</li><li>Confirm your app or card is active and has balance.</li><li>Unplug, wait 30 seconds, and try again.</li></ol></details>
+<details><summary>Charging is slower than expected</summary><ol><li>Check the station’s rated power against your car’s limit.</li><li>Speed drops above 80% charge.</li><li>A cold battery charges slower.</li></ol></details>
+<details><summary>Range dropped suddenly</summary><ol><li>Cold weather, air conditioning and high speed use more energy.</li><li>Check tyre pressure.</li><li>Use eco mode and plan the next charge earlier.</li></ol></details>
+</section>
+
+<footer>ChargeSense · College project on EV user-facing problems. Payments are simulated: owners and drivers settle directly.</footer>
+</div>
+
+<dialog id="authDlg"><form id="authForm">
+<h3 id="authTitle">Log in</h3>
+<label id="nameRow" hidden>Name<input id="aName" maxlength="40" autocomplete="name"></label>
+<label>Email<input id="aEmail" type="email" required autocomplete="email"></label>
+<label>Password<input id="aPass" type="password" required minlength="8" autocomplete="current-password"></label>
+<p class="err" id="aErr" role="alert"></p>
+<div class="row"><button class="btn" type="submit">Continue</button><button class="chip" type="button" id="swapAuth">Create account instead</button><button class="chip" type="button" id="closeAuth">Cancel</button></div>
+<p class="hint">Demo accounts: driver@demo.com, owner@demo.com. Password: demo1234</p>
+</form></dialog>
+
+<dialog id="reqDlg"><form id="reqForm">
+<h3 id="reqTitle">Request charging</h3>
+<p class="hint" id="reqInfo"></p>
+<label>Energy needed (kWh)<input id="rKwh" type="number" min="1" max="100" value="5" required></label>
+<label>Note for the owner (optional)<input id="rNote" maxlength="120" placeholder="Car model, arrival time"></label>
+<div class="out" id="rEst"></div>
+<p class="err" id="rErr" role="alert"></p>
+<div class="row"><button class="btn" type="submit">Send request</button><button class="chip" type="button" id="closeReq">Cancel</button></div>
+</form></dialog>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="insights.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Aarav Owner",
+      "email": "owner@demo.com",
+      "pw": "f28a72e8f140e37cca3c38d814a2414c:5925d60da2b6ceca67d5e511869bb1c4e0e1d1fe1198ea34f55e9b91dd085d3c"
+    },
+    {
+      "id": "u2",
+      "name": "Priya Shah",
+      "email": "priya@demo.com",
+      "pw": "26e867e7d0bf9162f7c38a79b7cfbcee:e8b5396b6ee9b3ce214ed0207b147ba8abb27483ecfcc1acbb67e0e247696dbe"
+    },
+    {
+      "id": "u3",
+      "name": "Rohan Driver",
+      "email": "driver@demo.com",
+      "pw": "7cd6b5dd8163689b424dabe31bffda22:4fda767babc0a9a53989360ab219084eacaea8517e4c4bb50b3134d9b6d6109a"
+    },
+    {
+      "id": "80f7b1b6",
+      "name": "Suraj vishwakarma",
+      "email": "9157suraj@gmail.com",
+      "pw": "476a54b5a359aa82032d59fc228670f9:7dcce8a0c8da3385611c2f051a76988bc5147ba2410f9dbd1a898b64649a101e"
+    }
+  ],
+  "stations": [
+    {
+      "id": "s1",
+      "n": "Highway Plaza Hub",
+      "a": "Expressway, Exit 12",
+      "lat": 19.14111,
+      "lng": 73.12119,
+      "kw": 60,
+      "c": [
+        "CCS2",
+        "CHAdeMO"
+      ],
+      "s": "free",
+      "p": 18
+    },
+    {
+      "id": "s2",
+      "n": "Airport Road Fast Charge",
+      "a": "Airport road",
+      "lat": 18.88886,
+      "lng": 73.125,
+      "kw": 50,
+      "c": [
+        "CCS2",
+        "CHAdeMO",
+        "Type 2"
+      ],
+      "s": "busy",
+      "p": 19
+    },
+    {
+      "id": "s3",
+      "n": "Metro Station Point",
+      "a": "South side",
+      "lat": 18.90687,
+      "lng": 72.91534,
+      "kw": 7,
+      "c": [
+        "Type 2"
+      ],
+      "s": "off",
+      "p": 10
+    },
+    {
+      "id": "s4",
+      "n": "Mall Parking Chargers",
+      "a": "East mall",
+      "lat": 19.11408,
+      "lng": 73.20124,
+      "kw": 22,
+      "c": [
+        "Type 2",
+        "Bharat AC"
+      ],
+      "s": "busy",
+      "p": 14
+    },
+    {
+      "id": "s5",
+      "n": "Tech Park Chargers",
+      "a": "Tech park",
+      "lat": 19.21318,
+      "lng": 73.07735,
+      "kw": 60,
+      "c": [
+        "CCS2"
+      ],
+      "s": "free",
+      "p": 20
+    },
+    {
+      "id": "s6",
+      "n": "Green Park Chargers",
+      "a": "North ring road",
+      "lat": 19.25823,
+      "lng": 73.0297,
+      "kw": 120,
+      "c": [
+        "CCS2"
+      ],
+      "s": "free",
+      "p": 21
+    }
+  ],
+  "chargers": [
+    {
+      "id": "c1",
+      "ownerId": "u1",
+      "title": "Home wall box",
+      "area": "Sector 22",
+      "address": "Plot 14, Sector 22 (gate with blue board)",
+      "phone": "+91 98000 00001",
+      "lat": 19.05552,
+      "lng": 73.044,
+      "plug": "Type 2",
+      "kw": 7,
+      "price": 12,
+      "available": true,
+      "createdAt": 1792557086985
+    },
+    {
+      "id": "c2",
+      "ownerId": "u1",
+      "title": "Villa garage socket",
+      "area": "Sector 9",
+      "address": "Villa 6, Sector 9, near garden",
+      "phone": "+91 98000 00001",
+      "lat": 19.00597,
+      "lng": 73.06782,
+      "plug": "Bharat AC",
+      "kw": 3,
+      "price": 9,
+      "available": true,
+      "createdAt": 1792557086985
+    },
+    {
+      "id": "c3",
+      "ownerId": "u2",
+      "title": "Society fast AC",
+      "area": "Residency Society",
+      "address": "Block B parking, Residency Society",
+      "phone": "+91 98000 00002",
+      "lat": 19.07805,
+      "lng": 72.99158,
+      "plug": "Type 2",
+      "kw": 11,
+      "price": 14,
+      "available": true,
+      "createdAt": 1792557086985
+    },
+    {
+      "id": "c4",
+      "ownerId": "u2",
+      "title": "Shop front CCS2",
+      "area": "Market Road",
+      "address": "Shop 3, Market Road",
+      "phone": "+91 98000 00002",
+      "lat": 19.09156,
+      "lng": 73.07735,
+      "plug": "CCS2",
+      "kw": 25,
+      "price": 20,
+      "available": true,
+      "createdAt": 1792557086985
+    },
+    {
+      "id": "c5",
+      "ownerId": "u1",
+      "title": "Farmhouse charger",
+      "area": "Outer farms",
+      "address": "Farm gate 2, Outer Farms",
+      "phone": "+91 98000 00001",
+      "lat": 19.14111,
+      "lng": 73.02017,
+      "plug": "Type 2",
+      "kw": 7,
+      "price": 11,
+      "available": true,
+      "createdAt": 1792557086985
+    }
+  ],
+  "requests": [],
+  "sessions": {
+    "34592c958d131ab4b9ae317d99eaaf8eef4e466cb80b618f": {
+      "uid": "80f7b1b6",
+      "exp": 1793162022748
+    }
+  }
+}

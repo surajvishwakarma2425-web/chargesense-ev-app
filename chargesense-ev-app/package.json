@@ -1,0 +1,9 @@
+{
+  "name": "chargesense-ev-app",
+  "version": "1.0.0",
+  "description": "EV user-facing problems app with Range Rescue: rent a nearby citizen charger when public chargers are out of range.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "test": "node tests/test.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
